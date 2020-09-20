@@ -36,4 +36,19 @@ class ManufactureController extends Controller
 
     }
 
+
+    public function all_manufacture(){
+       
+        $all_manufacture =  DB::table('manufacture') ->get();
+         $mannage_manufacture = view('admin.all_manufacture')
+            ->with('all_manufacture',  $all_manufacture);
+
+        return view('admin.admin_layout')
+            -> with('admin.all_manufacture',$mannage_manufacture);
+
+
+
+      //  return view('admin.all_category');
+    }
+
 }
