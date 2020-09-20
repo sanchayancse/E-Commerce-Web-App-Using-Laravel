@@ -51,4 +51,17 @@ class ManufactureController extends Controller
       //  return view('admin.all_category');
     }
 
+
+
+
+    public function delete_manufacture($manufacture_id){
+
+        DB::table('manufacture')
+            ->where('manufacture_id',$manufacture_id)
+            ->delete();
+
+            Session::get('message','Manufacture Deleted Successfully');
+            return Redirect::to('/all-manufacture');
+     }
+
 }

@@ -49,3 +49,5 @@ Route::get('/all-manufacture', 'ManufactureController@all_manufacture');
 
 
 Route::post('/save-manufacture', 'ManufactureController@save_manufacture');
+Route::get('/delete_manufacture/{manufacture_id}', 'ManufactureController@delete_manufacture');
+
