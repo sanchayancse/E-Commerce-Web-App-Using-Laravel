@@ -64,4 +64,30 @@ class ManufactureController extends Controller
             return Redirect::to('/all-manufacture');
      }
 
+
+
+
+     public function unactive_manufacture($manufacture_id){
+        
+        DB::table('manufacture')
+            ->where('manufacture_id',$manufacture_id)
+             ->update(['publication_status' =>0]);
+             Session::put('message','Manufacture Inactive successfully');
+             return Redirect::to('/all-manufacture');
+         
+     }
+ 
+ 
+     public function active_manufacture($manufacture_id){
+         
+         DB::table('manufacture')
+             ->where('manufacture_id',$manufacture_id)
+              ->update(['publication_status' =>1]);
+              Session::put('message','Manufacture active successfully');
+              return Redirect::to('/all-manufacture');
+          
+      }
+ 
+ 
+ 
 }
