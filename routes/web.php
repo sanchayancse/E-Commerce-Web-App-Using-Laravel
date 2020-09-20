@@ -59,3 +59,4 @@ Route::post('/update-manufacture/{manufacture_id}', 'ManufactureController@updat
 
 //Product Route .................................................................
 Route::get('/add-product', 'ProductController@index');
+Route::post('/save-product', 'ProductController@save_product');
