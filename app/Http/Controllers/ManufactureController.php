@@ -90,4 +90,37 @@ class ManufactureController extends Controller
  
  
  
+
+
+      public function edit_manufacture($manufacture_id){
+        
+        $manufacture_info = DB::table('manufacture')
+        ->where('manufacture_id',$manufacture_id)
+        ->first();
+
+        $manufacture_info = view('admin.edit_manufacture')
+            ->with('manufacture_info',  $manufacture_info);
+
+        return view('admin.admin_layout')
+            -> with('admin.edit_manufacture',$manufacture_info);
+
+
+     }
+
+
+     public function update_manufacture(Request $request, $manufacture_id){
+
+        $data=array();
+        $data['manufacture_name']=$request->manufacture_name;
+        $data['manufacture_description']=$request->manufacture_description;
+
+        DB::table('manufacture')
+            ->where('manufacture_id',$manufacture_id)
+            ->update($data);
+
+            //Session::get('message','Category Update Successfully');
+
+            return Redirect::to('/all-manufacture');
+         
+     }
 }
