@@ -23,7 +23,7 @@ Route::get('/', 'HomeController@index');
 
 //Backend...........................................................
 Route::get('/admin', 'AdminController@index');
-Route::get('/dashboard', 'AdminController@show_dashboard');
+Route::get('/dashboard', 'SuperAdminController@index');
 Route::get('/logout', 'SuperAdminController@logout');
 
 Route::post('/admin-dashboard', 'AdminController@dashboard');
@@ -59,4 +59,10 @@ Route::post('/update-manufacture/{manufacture_id}', 'ManufactureController@updat
 
 //Product Route .................................................................
 Route::get('/add-product', 'ProductController@index');
+Route::get('/all-product', 'ProductController@all_product');
 Route::post('/save-product', 'ProductController@save_product');
+
+Route::get('/delete_product/{product_id}', 'ProductController@delete_product');
+Route::get('/unactive_product/{product_id}', 'ProductController@unactive_product');
+Route::get('/active_product/{product_id}', 'ProductController@active_product');
+

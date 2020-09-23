@@ -14,6 +14,24 @@ class ProductController extends Controller
     }
 
 
+    public function all_product(){
+
+        $all_product =  DB::table('tbl_products') 
+                        ->join('tbl_category', 'tbl_products.category_id', '=', 'tbl_category.category_id')
+                        ->join('manufacture', 'tbl_products.manufacture_id', '=', 'manufacture.manufacture_id')
+                        ->select('tbl_products.*', 'tbl_category.category_name', 'manufacture.manufacture_name')
+                        ->get();
+         $mannage_product = view('admin.all_product')
+            ->with('all_product',  $all_product);
+
+        return view('admin.admin_layout')
+            -> with('admin.all_product',$mannage_product);
+
+
+    }
+
+
+
     public function save_product(Request $request){
        
         $data = array();
@@ -59,5 +77,40 @@ class ProductController extends Controller
     // echo"</pre>";
 
     }
+
+
+    public function delete_product($product_id){
+
+        DB::table('tbl_products')
+            ->where('product_id',$product_id)
+            ->delete();
+
+            Session::get('message','Product Deleted Successfully');
+            return Redirect::to('/all-product');
+     }
+
+
+     
+
+     public function unactive_product($product_id){
+        
+        DB::table('tbl_products')
+            ->where('product_id',$product_id)
+             ->update(['publication_status' =>0]);
+             Session::put('message','Product Inactive successfully');
+             return Redirect::to('/all-product');
+         
+     }
+
+     public function active_product($product_id){
+         
+        DB::table('tbl_products')
+            ->where('product_id',$product_id)
+             ->update(['publication_status' =>1]);
+             Session::put('message','Product active successfully');
+             return Redirect::to('/all-product');
+         
+     }
+ 
 
 }

@@ -12,12 +12,12 @@ session_start();
 class CategoryController extends Controller
 {
     public function index(){
-       
+        $this -> AdminAuth();
         return view('admin.add_category');
     }
 
     public function all_category(){
-       
+        $this -> AdminAuth();
         $all_category =  DB::table('tbl_category') ->get();
          $mannage_category = view('admin.all_category')
             ->with('all_category',  $all_category);
@@ -32,7 +32,7 @@ class CategoryController extends Controller
 
 
     public function save_category(Request $request){
-       
+        $this -> AdminAuth();
         $data = array();
         $data['category_id'] =$request -> category_id;
         $data['category_name'] =$request -> category_name;
@@ -76,7 +76,7 @@ class CategoryController extends Controller
 
 
      public function edit_category($category_id){
-        
+        $this -> AdminAuth();
         $category_info = DB::table('tbl_category')
         ->where('category_id',$category_id)
         ->first();
@@ -117,5 +117,15 @@ class CategoryController extends Controller
             return Redirect::to('/all-category');
      }
 
+
+     public function AdminAuth(){
+        $admin_id = Session::get('admin_id');
+        if($admin_id){
+            return;
+        }
+        else{
+            return Redirect::to('/admin')->send();
+        }
+    }
 
 }
