@@ -12,9 +12,15 @@
 */
 
 use App\Http\Controllers\HomeController;
+
+
 // Frontend side..............................................
 Route::get('/', 'HomeController@index');
 
+
+//Show Product by category
+Route::get('/show_product_by_category/{category_id}','HomeController@show_product_by_category');
+Route::get('/show_product_by_manufacture/{category_id}','HomeController@show_product_by_manufacture');
 
 
 
