@@ -25,8 +25,8 @@ foreach($all_published_product as $v_published_product){
 								</div>
 								<div class="choose">
 									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+										<li><a href="#"><i class="fa fa-plus"></i>Add to wishlist</a></li>
+									<li><a href="{{URL::to('/view_product/'.$v_published_product->product_id)}}"><i class="fa fa-eye"></i>View Product</a></li>
 									</ul>
 								</div>
 							</div>
