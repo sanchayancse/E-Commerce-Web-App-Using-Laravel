@@ -1,6 +1,7 @@
 @extends('welcome')
 
 @section('content')
+@include('slider')
 
 <h2 class="title text-center">Features Items</h2>
 <?php

@@ -23,11 +23,14 @@ Route::get('/show_product_by_category/{category_id}','HomeController@show_produc
 Route::get('/show_product_by_manufacture/{category_id}','HomeController@show_product_by_manufacture');
 Route::get('/view_product/{product_id}','HomeController@product_details_by_id');
 
+//Cart Routes
 Route::post('/add-to-cart','CartController@add_to_cart');
-
 Route::get('/show-cart','CartController@show_cart');
 Route::get('/delete-to-cart/{rowId}','CartController@delete_cart');
 Route::post('/update-cart','CartController@update_cart');
+
+//Checkout Routes
+Route::get('/login-check','CheckoutController@login_check');
 
 
 
