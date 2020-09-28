@@ -13,13 +13,13 @@ foreach($all_published_product as $v_published_product){
 											<img src="{{URL::to($v_published_product->product_image)}}" alt="" />
 											<h2>₹{{$v_published_product->product_price}}</h2>
 										<p>{{$v_published_product->product_name}}</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											<a href="{{URL::to('/view_product/'.$v_published_product->product_id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
 												<h2>₹{{$v_published_product->product_price}}</h2>
 												<p>{{$v_published_product->product_name}}</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												<a href="{{URL::to('/view_product/'.$v_published_product->product_id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 											</div>
 										</div>
 								</div>

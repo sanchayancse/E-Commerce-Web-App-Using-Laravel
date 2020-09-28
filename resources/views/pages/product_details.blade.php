@@ -51,12 +51,18 @@
             <img src="{{URl::to('frontend/images/product-details/rating.png')}}" alt="" />
             <span>
             <span>₹ {{$product_by_details -> product_price}}</span>
+
+            <form action="{{url('/add-to-cart')}}" method="POST">
+                {{ csrf_field() }}
                 <label>Quantity:</label>
-                <input type="text" value="3" />
-                <button type="button" class="btn btn-fefault cart">
+                <input type="text" name="quantity" value="1" />
+            <input type="text" name="product_id" value="{{$product_by_details->product_id}}" hidden />
+                
+                <button type="submit" class="btn btn-fefault cart">
                     <i class="fa fa-shopping-cart"></i>
                     Add to cart
                 </button>
+            </form>
             </span>
             <p><b>Availability:</b> In Stock</p>
             <p><b>Product Size:</b> {{$product_by_details -> product_size}}</p>
