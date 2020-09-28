@@ -31,6 +31,9 @@ Route::post('/update-cart','CartController@update_cart');
 
 //Checkout Routes
 Route::get('/login-check','CheckoutController@login_check');
+Route::post('/customer-registration','CheckoutController@customer_registration');
+Route::get('/checkout','CheckoutController@checkout');
+
 
 
 

@@ -62,4 +62,9 @@ class CartController extends Controller
             return Redirect::to('/show-cart');
 
         }
+
+
+        public function checkout(){
+            return view('pages.checkout')
+        }
 }
