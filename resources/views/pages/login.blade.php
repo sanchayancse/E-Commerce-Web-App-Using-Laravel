@@ -9,7 +9,8 @@
             <div class="col-sm-4 col-sm-offset-1">
                 <div class="login-form"><!--login form-->
                     <h2>Login to your account</h2>
-                    <form action="#" method="POST">
+                    <form action="{{URL::to('/customer-login')}}" method="POST">
+                        {{ csrf_field() }}
                         <input type="email" placeholder="Email" name="customer_email" />
                         <input type="password" placeholder="Password" name="password" />
                         
