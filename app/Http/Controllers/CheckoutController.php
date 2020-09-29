@@ -39,6 +39,24 @@ class CheckoutController extends Controller
     public function checkout(){
         return view('pages.checkout');
     }
+
+    public function save_shipping_detaisl(Request $request){
+
+        $data=array();
+        $data['shipping_email']=$request->shipping_email;
+        $data['shipping_fullname']=$request->shipping_fullname;
+        $data['shipping_phone_number']=$request->shipping_phone_number;
+        $data['shipping_city']=$request->shipping_city;
+        $data['shipping_address']=$request->shipping_address;
+
+            $shipping_id = DB::table('tbl_shipping')
+                ->insertGetId($data);
+
+                Session::put('shipping_id',$shipping_id);
+
+                return Redirect::to('/payment');
+
+    }
 }
 
 
