@@ -102,9 +102,9 @@
 
 							
 							<?php if($customer_id != NULL){?>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Logout</a></li>
+								<li><a href="{{URL::to('/customer-logout')}}"><i class="fa fa-lock"></i> Logout</a></li>
 							<?php } else{?>
-							<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+							<li><a href="{{URL::to('/login-check')}}"><i class="fa fa-lock"></i> Login</a></li>
 							<?php }?>
 							</ul>
 						</div>

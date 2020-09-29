@@ -57,6 +57,11 @@ class CheckoutController extends Controller
 
     }
 
+    public function customer_logout(){
+        Session::flush();
+        return Redirect::to('/');
+    }
+
     public function checkout(){
         return view('pages.checkout');
     }
